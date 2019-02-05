@@ -6,26 +6,26 @@ RentASnow - ICT151 : application web de location de snowboards.
 
 ## Comment débuter ?
 
-* Récupérer le code de départ en clonant le dépôt directement dans PhpStorm. Vous obtiendrez :
+Récupérez le code de départ en clonant le dépôt directement dans PhpStorm. Vous obtiendrez :
   * La structure MVC (vide).
   * Le template (voir dans le répertoire [Projet]/view/content).
   
-* Modifiez "origin" afin de pouvoir connecter le code sur votre propre dépôt git en ligne. Modifiez l'origine ainsi:
+Modifiez "origin" afin de pouvoir connecter le code sur votre propre dépôt git en ligne. Modifiez l'origine ainsi:
   
   * En ligne de commande :
 
     1) Affichez les "remotes" présents:
-          ```git
+          ```
           git remote -V
           ```
 
     2) Supprimer les "origines"
-          ```git
+          ```
           git remote origin
           ```
 
     3)  Ajouter la référence de votre propre dépôt
-          ```git
+          ```
           git remote add origin [le lien de votre dépôt]
           ```
 
@@ -40,11 +40,11 @@ RentASnow - ICT151 : application web de location de snowboards.
   
 * Configuration Php 7
   
-  * Xdebug (Aide : [PHP]/ext/xdebug.dll + config dans le php.ini)
+  1) Xdebug (Aide : [PHP]/ext/xdebug.dll + config dans le php.ini)
   
-  * PDO (Aide : php.ini - extension=php_pdo_mysql.dll doit être décommentée)
+  2) PDO (Aide : php.ini - extension=php_pdo_mysql.dll doit être décommentée)
 
-![checkPhpConfig](checkPhpConfig.PNG)
+      ![checkPhpConfig](checkPhpConfig.PNG)
 
 * [Xdebug Helper](https://www.jetbrains.com/help/phpstorm/browser-debugging-extensions.html) intégré dans le navigateur de votre choix
   
@@ -52,7 +52,7 @@ RentASnow - ICT151 : application web de location de snowboards.
 
 ### Mise en place
 #### Code
-Configurer PhpStorm ainsi:
+Configurez PhpStorm ainsi:
 
    1. L'interpréteur Php doit être référencé pour que PhpStrom puisse l'appeler
    
@@ -72,7 +72,9 @@ Note : Vous trouverez le script de base de données dans le répertoire [Projet]
 
 #### Résultat attendu
 Dans PhpStrom
+
 ![imgPhpStromResult](imgPhpStromResult.PNG)
 
 Dans la base de données
+
 ![imgMySQLResult](imgMySQLResult.PNG)
