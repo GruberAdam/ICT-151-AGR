@@ -6,6 +6,8 @@
 */
 session_start();
 
+
+require_once "model/model.php";
 //This function redirects on home.php
 function home(){
     $_GET["action"] = "home";
@@ -65,7 +67,6 @@ function register(){
         require "view/register.php";
     }
     else{
-        require "model/model.php";
         registerToJson($firstName, $email, $password);
         require "view/login.php";
     }
