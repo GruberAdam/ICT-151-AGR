@@ -8,6 +8,8 @@ session_start();
 
 
 require_once "model/model.php";
+require_once "model/userManagement.php";
+
 //This function redirects on home.php
 function home(){
     $_GET["action"] = "home";
@@ -67,8 +69,7 @@ function register(){
         require "view/register.php";
     }
     else{
-        registerToJson($firstName, $email, $password);
-        require "view/login.php";
+        checkUserAccounts($firstName, $email, $password);
     }
 
 }

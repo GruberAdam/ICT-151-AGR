@@ -16,7 +16,7 @@ $titre = "Rent A Snow - Acceuil"
         <label for="user_password">Mot de passe</label>
         <input type="password" name="user_password" id="user_password" required>
         <br>
-        <input type="submit">
+        <input type="submit" value="Valider">
     </form>
     <button><a href="index.php?action=register">Create an account</a></button>
 
