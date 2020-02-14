@@ -61,15 +61,20 @@ function logout(){
  * 2. Call a function to write in a json file
  */
 function register(){
-    $firstName = @$_POST['user_register_firstname'];
-    $email = @$_POST['user_register_email'];
+    $username = @$_POST['user_register_firstname'];
+    $email = strtolower(@$_POST['user_register_email']);
     $password = @$_POST['user_register_password'];
 
-    if (!isset($firstName) || !isset($email) || !isset($password)){
-        require "view/register.php";
+    if (!isset($username) || !isset($email) || !isset($password)){
+        require_once "view/register.php";
     }
     else{
-        $queryResult = checkUserAccounts($firstName, $email, $password);
+        $result = checkUserAccounts($username, $email, $password);
+        if ($result){
+            $output = addUser($username, $email, $password);
+        }
+        require_once "view/register.php";
+
     }
 
 }

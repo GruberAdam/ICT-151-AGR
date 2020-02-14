@@ -22,7 +22,6 @@ function openDatabaseConnection()
     // Try to connect to the database
     try {
         $dbConnector = new PDO($dns, $userName, $userPwd);
-        echo 'connection worked';
     } //If connection fails
     catch (PDOException $exception) {
         echo 'Connection failed : ' . $exception->getMessage();
