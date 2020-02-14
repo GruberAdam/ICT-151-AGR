@@ -69,7 +69,7 @@ function register(){
         require "view/register.php";
     }
     else{
-        checkUserAccounts($firstName, $email, $password);
+        $queryResult = checkUserAccounts($firstName, $email, $password);
     }
 
 }

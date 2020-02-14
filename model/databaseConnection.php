@@ -9,6 +9,7 @@
 function openDatabaseConnection()
 {
     //Database proprieties
+    $dbConnector = null;
     $sqlDriver = 'mysql';
     $hostname = 'localhost';
     $userName = 'SnowUser';
@@ -26,4 +27,18 @@ function openDatabaseConnection()
     catch (PDOException $exception) {
         echo 'Connection failed : ' . $exception->getMessage();
     }
+    return $dbConnector;
+}
+
+/* Executes the query */
+function executeQuery($query)
+{
+    $databaseConnection = openDatabaseConnection();
+    if ($databaseConnection != null) {
+        $statement = $databaseConnection->prepare($query);
+        $statement->execute();//execute query
+        $queryResult = $statement->fetchAll();//prepare result for client
+    }
+    $databaseConnection = null;
+    return $queryResult;
 }
