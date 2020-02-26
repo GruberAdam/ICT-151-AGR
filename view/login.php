@@ -11,10 +11,28 @@ ob_start(); // Ouvre la memoire tampon
 $titre = "Rent A Snow - Acceuil"
 ?>
     <form action="index.php?action=login" method="post">
-        <label for="user_email">E-mail</label>
-        <input type="email" name="user_email" id="user_email" required>
-        <label for="user_password">Mot de passe</label>
-        <input type="password" name="user_password" id="user_password" required>
+        <?php if (@$_GET['login-error']) : ?>
+            <div class="alert alert-error" role="alert">
+                <h4 class="alert-heading">Erreur !</h4>
+                <p>Le pseudo entré / mot de passe contient une erreur </p>
+            </div>
+        <?php endif; ?>
+
+        <!-- Display a success if the account was added to database -->
+        <?php if (@$_GET['login-success']) : ?>
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Réussite !</h4>
+                <p>Vous êtes bien connecté</p>
+                <hr>
+                <div class="alert alert-success" role="alert">
+                    Revenir a la page <a href="index.php?action=home" class="">d'acceuil</a>.
+                </div>
+            </div>
+        <?php endif; ?>
+        <label for="user_login_username">Pseudo</label>
+        <input type="text" name="user_login_username" id="user_login_username" required>
+        <label for="user_login_password">Mot de passe</label>
+        <input type="password" name="user_login_password" id="user_login_password" required>
         <br>
         <input type="submit" value="Valider">
     </form>

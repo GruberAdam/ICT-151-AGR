@@ -9,9 +9,6 @@ $_GET["action"] = "register";
 
 ob_start();
 ?>
-<?php
-    echo "ERROR : ". @$_GET['register-error'];
-?>
     <!-- REGISTER FORM -->
     <form action="index.php?action=register" method="post">
 
@@ -32,7 +29,7 @@ ob_start();
         <?php endif; ?>
 
         <label for="user_register_firstname">Pseudo</label>
-        <input type="text" id="user_register_firstname" name="user_register_firstname" required>
+        <input type="text" id="user_register_firstname" name="user_register_username" required>
         <label for="user_register_email">E-mail</label>
         <input type="email" name="user_register_email" id="user_register_email" required>
         <label for="user_register_password">Mot de passe</label>
