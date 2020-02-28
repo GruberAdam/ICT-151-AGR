@@ -38,7 +38,7 @@ function login()
 
         if ($connected) {
             //Redirects on home and creates a session variable
-            $_SESSION['mail'] = $username;
+            $_SESSION['pseudo'] = $username;
         }
         require_once "view/login.php";
     }
@@ -79,7 +79,9 @@ function register()
             $output = addUser($username, $email, $password);
         }
         require_once "view/register.php";
-
     }
+}
 
+function products(){
+    require_once "view/snows.php";
 }

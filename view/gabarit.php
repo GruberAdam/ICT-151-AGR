@@ -12,7 +12,7 @@
     <link href="view/content/scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="view/content/scripts/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 eleaments -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -82,17 +82,17 @@
                                 <li <?php if (($_GET['action'] == 'login') || ($_GET['action'] == 'register')) : ?>
                                     class="active"
                                 <?php endif ?>>
-                                    <a href="index.php?action=<?php if (isset($_SESSION['mail'])) : ?>logout<?php else: ?>login<?php endif?>">
-                                        <?php if (!isset($_SESSION['mail'])) : ?>
+                                    <a href="index.php?action=<?php if (isset($_SESSION['pseudo'])) : ?>logout<?php else: ?>login<?php endif?>">
+                                        <?php if (!isset($_SESSION['pseudo'])) : ?>
                                             Login
                                         <?php endif ?>
-                                        <?php if (isset($_SESSION['mail'])) : ?>
+                                        <?php if (isset($_SESSION['pseudo'])) : ?>
                                             Log out
                                         <?php endif ?>
                                     </a></li>
 
                                 <!-- PRODUCT BUTTON -->
-                                <li><a href="content/services.html">Produits</a></li>
+                                <li><a href="index.php?action=products">Produits</a></li>
                             </ul>
                         </div>
                     </div>
@@ -105,9 +105,9 @@
     </div>
     <?php
     //Affiche l'email de l'utilisateur
-    if (isset($_SESSION['mail'])){
+    if (isset($_SESSION['pseudo'])){
         echo "<p align='right'; style='font-size: 25px; margin-right: 10px; color: lightcoral'>";
-        echo "E-mail : ".$_SESSION['mail'];
+        echo "Pseudo : ".$_SESSION['pseudo'];
         echo "</p>";
     }
     ?>
