@@ -82,7 +82,7 @@
                                 <li <?php if (($_GET['action'] == 'login') || ($_GET['action'] == 'register')) : ?>
                                     class="active"
                                 <?php endif ?>>
-                                    <a href="index.php?action=<?php if (isset($_SESSION['pseudo'])) : ?>logout<?php else: ?>login<?php endif?>">
+                                    <a href="index.php?action=<?php if (isset($_SESSION['pseudo'])) : ?>logout<?php else: ?>login<?php endif ?>">
                                         <?php if (!isset($_SESSION['pseudo'])) : ?>
                                             Login
                                         <?php endif ?>
@@ -92,7 +92,10 @@
                                     </a></li>
 
                                 <!-- PRODUCT BUTTON -->
-                                <li><a href="index.php?action=products">Produits</a></li>
+                                <li<?php if ($_GET['action'] == 'products') : ?>
+                                    class="active"
+                                <?php endif; ?>>
+                                    <a href="index.php?action=products">Produits</a></li>
                             </ul>
                         </div>
                     </div>
@@ -105,9 +108,9 @@
     </div>
     <?php
     //Affiche l'email de l'utilisateur
-    if (isset($_SESSION['pseudo'])){
+    if (isset($_SESSION['pseudo'])) {
         echo "<p align='right'; style='font-size: 25px; margin-right: 10px; color: lightcoral'>";
-        echo "Pseudo : ".$_SESSION['pseudo'];
+        echo "Pseudo : " . $_SESSION['pseudo'];
         echo "</p>";
     }
     ?>

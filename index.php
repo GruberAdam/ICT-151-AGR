@@ -24,6 +24,9 @@ if (isset($_GET["action"])) {
         case 'register':
             register();
             break;
+        case 'displayASnow':
+            displayASnow($_GET['code']);
+            break;
         default :
             home();
     }

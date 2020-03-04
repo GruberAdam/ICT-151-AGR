@@ -9,6 +9,7 @@ session_start();
 
 require_once "model/model.php";
 require_once "model/userManagement.php";
+require_once "model/snowsManagement.php";
 
 //This function redirects on home.php
 function home()
@@ -82,6 +83,13 @@ function register()
     }
 }
 
+/* This will get the every snow in the database */
 function products(){
+    $snows = displaySnows();
     require_once "view/snows.php";
+}
+
+function displayASnow($code){
+    $snow = displayOneSnow($code);
+    require_once "view/snow.php";
 }
