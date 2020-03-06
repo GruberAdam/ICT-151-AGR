@@ -29,8 +29,8 @@ $titre = "Rent A Snow - Acceuil"
                 </div>
             </div>
         <?php endif; ?>
-        <label for="user_login_username">Pseudo</label>
-        <input type="text" name="user_login_username" id="user_login_username" required>
+        <label for="user_login_email">Pseudo</label>
+        <input type="email" name="user_login_email" id="user_login_email" required>
         <label for="user_login_password">Mot de passe</label>
         <input type="password" name="user_login_password" id="user_login_password" required>
         <br>

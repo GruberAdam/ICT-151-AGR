@@ -37,16 +37,16 @@ function addUser($username, $mail, $password)
 }
 
 /* This will check if the username and password inputed is in the database */
-function checkLogin($username, $password)
+function checkLogin($email, $password)
 {
 
     /* Creates a query and executes it */
-    $query = "SELECT pseudo, userPsw FROM snows.users;";
+    $query = "SELECT userEmailAddress, userPsw FROM snows.users;";
     $result = executeQuery($query);
 
     /* Checks if the username and password are in the database */
     foreach ($result as $user) {
-        if ($username == $user['pseudo'] && password_verify($password, $user['userPsw'])) {
+        if ($email == $user['userEmailAddress'] && password_verify($password, $user['userPsw'])) {
             $_GET['login-success'] = true;
             return true;
         }
@@ -54,5 +54,33 @@ function checkLogin($username, $password)
     /* If no credentials matching were found */
     $_GET['login-error'] = true;
     return false;
+
+}
+
+function adminCheck($email){
+
+    /* Create a query and executes it */
+    $query = "SELECT userEmailAddress, admin FROM snows.users;";
+    $result = executeQuery($query);
+
+    /* Checks if user is an admin */
+    foreach ($result as $user){
+        if ($email == $user['userEmailAddress'] && $user['admin'] == true){
+            return true;
+        }
+    }
+    return false;
+}
+
+function getUsername($email){
+    $query = "SELECT userEmailAddress, pseudo FROM snows.users;";
+    $result = executeQuery($query);
+
+    foreach ($result as $user){
+        if ($email == $user['userEmailAddress']){
+            return $user['pseudo'];
+        }
+    }
+    return false; // ERROR
 
 }

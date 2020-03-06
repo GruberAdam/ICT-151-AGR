@@ -24,22 +24,35 @@ function home()
  */
 function login()
 {
+
     $_GET["action"] = "login";
 
     //Takes the username / password
-    $username = @$_POST['user_login_username'];
+    $email = @$_POST['user_login_email'];
     $password = @$_POST['user_login_password'];
 
     //Checks if the username or password is empty
-    if (!isset($username) || !isset($password)) {
+    if (!isset($email) || !isset($password)) {
         require "view/login.php";
     } else {
+
         //Checks if the password is true
-        $connected = checkLogin($username, $password);
+        $connected = checkLogin($email, $password);
 
         if ($connected) {
+            $admin = adminCheck($email);
+            $username = getUsername($email);
+
+            @$_SESSION['email'] = $email;
+
+            if ($admin){
+                $_SESSION['admin'] = true;
+            }
+            else{
+                $_SESSION['admin'] = false;
+            }
             //Redirects on home and creates a session variable
-            $_SESSION['pseudo'] = $username;
+
         }
         require_once "view/login.php";
     }
@@ -86,6 +99,7 @@ function register()
 /* This will get the every snow in the database */
 function products(){
     $snows = displaySnows();
+
     require_once "view/snows.php";
 }
 
