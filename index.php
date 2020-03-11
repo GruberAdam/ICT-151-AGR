@@ -27,6 +27,9 @@ if (isset($_GET["action"])) {
         case 'displayASnow':
             displayASnow($_GET['code']);
             break;
+        case 'cart':
+            cart();
+            break;
         default :
             home();
     }

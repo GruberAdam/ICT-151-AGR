@@ -47,12 +47,13 @@ function login()
 
             if ($admin){
                 $_SESSION['admin'] = true;
+                echo 'admin';
             }
             else{
                 $_SESSION['admin'] = false;
+                echo 'notadmin';
             }
             //Redirects on home and creates a session variable
-
         }
         require_once "view/login.php";
     }
@@ -103,7 +104,12 @@ function products(){
     require_once "view/snows.php";
 }
 
+/* This function will take the snows output and send the variable in snow.php */
 function displayASnow($code){
     $snow = displayOneSnow($code);
     require_once "view/snow.php";
+}
+
+function cart(){
+    echo 'panier';
 }

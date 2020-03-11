@@ -33,6 +33,7 @@
     <!--[if IE 7]>
     <link rel="stylesheet" href="view/content/scripts/fontawesome/css/font-awesome-ie7.min.css">
     <![endif]-->
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
     <link href="view/content/scripts/carousel/style.css" rel="stylesheet" type="text/css"/>
     <link href="view/content/scripts/camera/css/camera.css" rel="stylesheet" type="text/css"/>
@@ -82,11 +83,11 @@
                                 <li <?php if (($_GET['action'] == 'login') || ($_GET['action'] == 'register')) : ?>
                                     class="active"
                                 <?php endif ?>>
-                                    <a href="index.php?action=<?php if (isset($_SESSION['pseudo'])) : ?>logout<?php else: ?>login<?php endif ?>">
-                                        <?php if (!isset($_SESSION['pseudo'])) : ?>
+                                    <a href="index.php?action=<?php if (isset($_SESSION['email'])) : ?>logout<?php else: ?>login<?php endif ?>">
+                                        <?php if (!isset($_SESSION['email'])) : ?>
                                             Login
                                         <?php endif ?>
-                                        <?php if (isset($_SESSION['pseudo'])) : ?>
+                                        <?php if (isset($_SESSION['email'])) : ?>
                                             Log out
                                         <?php endif ?>
                                     </a></li>
@@ -96,6 +97,9 @@
                                     class="active"
                                 <?php endif; ?>>
                                     <a href="index.php?action=products">Produits</a></li>
+                                <li>
+                                    <a href="index.php?action=cart">Panier</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -108,9 +112,9 @@
     </div>
     <?php
     //Affiche l'email de l'utilisateur
-    if (isset($_SESSION['pseudo'])) {
+    if (isset($_SESSION['email'])) {
         echo "<p align='right'; style='font-size: 25px; margin-right: 10px; color: lightcoral'>";
-        echo "Pseudo : " . $_SESSION['pseudo'];
+        echo "Pseudo : " .  @$_SESSION['email'];
         echo "</p>";
     }
     ?>

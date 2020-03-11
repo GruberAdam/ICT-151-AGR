@@ -19,6 +19,14 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -28,6 +36,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="web.server" />
@@ -80,7 +89,9 @@
       <workItem from="1583325860932" duration="7628000" />
       <workItem from="1583411578360" duration="81000" />
       <workItem from="1583415421480" duration="549000" />
-      <workItem from="1583489965688" duration="2982000" />
+      <workItem from="1583489965688" duration="3246000" />
+      <workItem from="1583744570247" duration="32000" />
+      <workItem from="1583931272232" duration="6789000" />
     </task>
     <servers />
   </component>
