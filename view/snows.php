@@ -51,8 +51,16 @@ $index = 0;
             </tr>
         <?php endforeach ?>
     </table>
-    <div id="dialog-window" style="display: none">
-        <a class="btn btn-danger" role="button" style="float: right" id="button-exit">Quitter</a>
+    <!-- ADD FORM -->
+    <div id="dialog-window_add" style="display: none" class="dialog-window">
+        <a class="btn btn-danger" role="button" style="float: right" id="button-exit-add">Quitter</a>
+        <div class="form-group col-md-4">
+            <label for="inputState">Code</label>
+        </div>
+    </div>
+    <!-- MODIFY FORM -->
+    <div id="dialog-window_modify" class="dialog-window" style="display: none">
+        <a class="btn btn-danger" role="button" style="float: right" id="button-exit-modifications">Quitter</a>
         <div class="form-group col-md-4">
             <label for="inputState">Code</label>
             <select id="inputState" class="form-control">
@@ -62,8 +70,11 @@ $index = 0;
             </select>
         </div>
     </div>
-
-    <a class="btn btn-primary" href="#" role="button" style="padding: 10px; margin-top: 10px"
+    <a class="btn btn-success" href="#" role="button" style="padding: 10px; margin-top: 10px"
+       id="button-snow_add">Ajouter</a>
+    <a class="btn btn-danger" href="#" role="button" style="padding: 10px; margin-top: 10px"
+       id="button-snow_delete">Supprimer</a>
+    <a class="btn btn-info" href="#" role="button" style="padding: 10px; margin-top: 10px"
        id="button-snow_modifications">Modifier un snow</a>
 <?php endif;
 ?>
