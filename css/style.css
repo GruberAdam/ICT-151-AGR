@@ -3,7 +3,7 @@
      position: fixed;
      left: 25%;
      right: 30%;
-     bottom: 30%;
+     bottom: 20%;
      top: 25%;
      background-color: white;
      border: solid 2px gray;
@@ -19,4 +19,23 @@
     left: 0;
     z-index: 998;
     background: rgba(0, 0, 0, 0.7);
+}
+
+#submit_add_snow_from{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    padding: 30px;
+    font-size: 30px;
+}
+
+#add_description{
+    position: absolute;
+    bottom: 75%;
+    left: 50%;
+}
+#description_text{
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
 }

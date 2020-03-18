@@ -110,6 +110,12 @@ function displayASnow($code){
     require_once "view/snow.php";
 }
 
+function modifySnow($code, $brand, $model, $length, $price, $schedule, $img, $description){
+    if (isset($code) && isset($brand) && isset($model) && isset($length) && isset($price) && isset($schedule) && isset($img)){
+        addSnow($code, $brand,$model,$length,$price,$schedule,$img, $description);
+    }
+}
+
 function cart(){
     echo 'panier';
 }

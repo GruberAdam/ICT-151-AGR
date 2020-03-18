@@ -20,3 +20,9 @@ function displayOneSnow($code){
 
     return $result;
 }
+
+function addSnow($code, $brand,$model,$length,$price,$schedule,$img, $description){
+    $query = "INSERT INTO snows.snows (code, brand, model, snowLength, qtyAvailable, description, dailyPrice, photo) VALUES ('$code', '$brand', '$model', '$length', '$schedule', '$description', '$price', '$img');";
+    $result = executeQuery($query);
+
+}

@@ -55,7 +55,24 @@ $index = 0;
     <div id="dialog-window_add" style="display: none" class="dialog-window">
         <a class="btn btn-danger" role="button" style="float: right" id="button-exit-add">Quitter</a>
         <div class="form-group col-md-4">
-            <label for="inputState">Code</label>
+            <form method="post" action="index.php?action=modifySnow">
+                <label for="add_code">Code</label>
+                <input type="text" maxlength="4" id="add_code" name="modify_code">
+                <label for="add_brand">Marque</label>
+                <input type="text" name="modify_brand" id="add_brand">
+                <label for="add_model">Modèle</label>
+                <input id="add_model" type="text" name="modify_model">
+                <label for="add_length">Longeur</label>
+                <input type="number" id="add_length" name="modify_length">
+                <label for="add_price">Prix</label>
+                <input type="number" id="add_price" name="modify_price">
+                <label for="add_schedule">Disponibilité</label>
+                <input type="number" id="add_schedule" name="modify_schedule">
+                <label for="add_image">Image</label>
+                <input type="file" id="add_image" name="modify_img" accept="image/*">
+                <input type="submit" id="submit_add_snow_from" class="btn btn-success" value="Valider">
+                <textarea id="add_description" name="modify_description" cols="20" rows="3">Ecrivez une déscription du snow</textarea>
+            </form>
         </div>
     </div>
     <!-- MODIFY FORM -->

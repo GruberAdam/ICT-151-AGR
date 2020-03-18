@@ -8,7 +8,8 @@
 $_GET["action"] = "login";
 // tampon de flux stocké en mémoire
 ob_start(); // Ouvre la memoire tampon
-$titre = "Rent A Snow - Acceuil"
+$titre = "Rent A Snow - Acceuil";
+
 ?>
     <form action="index.php?action=login" method="post">
         <?php if (@$_GET['login-error']) : ?>

@@ -30,6 +30,17 @@ if (isset($_GET["action"])) {
         case 'cart':
             cart();
             break;
+        case 'modifySnow':
+            $code = $_POST['modify_code'];
+            $brand = $_POST['modify_brand'];
+            $model = $_POST['modify_model'];
+            $length = $_POST['modify_length'];
+            $price = $_POST['modify_price'];
+            $schedule = $_POST['modify_schedule'];
+            $image = $_POST['modify_img'];
+            $description = $_POST['modify_description'];
+            modifySnow($code, $brand, $model, $length, $price, $schedule, $image, $description);
+            break;
         default :
             home();
     }
