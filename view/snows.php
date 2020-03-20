@@ -48,6 +48,7 @@ $index = 0;
                 <td><?= $snow['dailyPrice'] ?></td>
                 <td><?= $snow['qtyAvailable'] ?></td>
                 <td><img src="<?= $snow['photo'] ?>" style="width: 50px"></td>
+                <td></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -82,17 +83,19 @@ $index = 0;
             <label for="inputState">Code</label>
             <select id="inputState" class="form-control">
                 <?php foreach ($snows as $snow) : ?>
-                    <option><?= $snow['code'] ?></option>
+                    <option><?= $snow['code']?></option>
                 <?php endforeach ?>
             </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label >code</label>
+            <input type="text" id="input_modify">
         </div>
     </div>
     <a class="btn btn-success" href="#" role="button" style="padding: 10px; margin-top: 10px"
        id="button-snow_add">Ajouter</a>
-    <a class="btn btn-danger" href="#" role="button" style="padding: 10px; margin-top: 10px"
-       id="button-snow_delete">Supprimer</a>
-    <a class="btn btn-info" href="#" role="button" style="padding: 10px; margin-top: 10px"
-       id="button-snow_modifications">Modifier un snow</a>
+    <a class="btn btn-info button-snow_modifications" href="#" role="button" style="padding: 10px; margin-top: 10px">Modifier
+        un snow</a>
 <?php endif;
 ?>
 

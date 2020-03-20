@@ -19,20 +19,20 @@ exitButtonAdd.addEventListener('click', function () {
 
 
 /* EVERYTHING ABOUT MODIFY */
-var modifyButton = document.getElementById('button-snow_modifications');
+var modifyButton = document.getElementsByClassName('button-snow_modifications');
 var frontDialogModify = document.getElementById('dialog-window_modify');
 var exitButtonModifications = document.getElementById('button-exit-modifications');
 
-modifyButton.addEventListener('click', function () {
-    displayWidow(frontDialogModify)
-});
+for (var i = 0; i < modifyButton.length; i++)
+    modifyButton[i].addEventListener('click', function () {
+        displayWidow(frontDialogModify)
+    });
 
 exitButtonModifications.addEventListener('click', function () {
     exitWindow(frontDialogModify)
 });
 
 function displayWidow(element) {
-    console.log(element)
     background.id = "overlay";
     element.style.display = "block";
 }
@@ -41,3 +41,20 @@ function exitWindow(element) {
     element.style.display = "none";
     document.getElementById('overlay').id = "set-overlay";
 }
+
+var selection = document.getElementById('inputState');
+
+selection.addEventListener('change', function () {
+    var index = selection.selectedIndex + 1
+
+
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("input_modify").value = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "model/getSnowAjax.php?index=" + index , true);
+    xmlhttp.send();
+});
