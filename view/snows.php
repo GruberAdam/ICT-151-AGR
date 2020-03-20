@@ -29,6 +29,7 @@ $index = 0;
     <div id="set-overlay"></div>
     <table style="width: 100%; border: 1px solid black;">
         <tr style="text-align: left; border: 1px solid black;">
+            <th>ID</th>
             <th>Code</th>
             <th>Marque</th>
             <th>Modèle</th>
@@ -41,6 +42,7 @@ $index = 0;
         <!-- TABLE -->
         <?php foreach ($snows as $snow) : ?>
             <tr style="border: 1px solid black;">
+                <td><?= $snow['id'] ?></td>
                 <td><a href="index.php?action=displayASnow&code=<?= $snow['code'] ?>"><?= $snow['code'] ?></a></td>
                 <td><?= $snow['brand'] ?></td>
                 <td><?= $snow['model'] ?></td>
@@ -80,16 +82,40 @@ $index = 0;
     <div id="dialog-window_modify" class="dialog-window" style="display: none">
         <a class="btn btn-danger" role="button" style="float: right" id="button-exit-modifications">Quitter</a>
         <div class="form-group col-md-4">
-            <label for="inputState">Code</label>
+            <label for="inputState">ID</label>
             <select id="inputState" class="form-control">
                 <?php foreach ($snows as $snow) : ?>
-                    <option><?= $snow['code']?></option>
+                    <option><?= $snow['id'] ?></option>
                 <?php endforeach ?>
             </select>
         </div>
         <div class="form-group col-md-4">
-            <label >code</label>
-            <input type="text" id="input_modify">
+            <label>Code</label>
+            <input type="text" id="input_modify_code">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Marque</label>
+            <input type="text" id="input_modify_brand">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Modèle</label>
+            <input type="text" id="input_modify_model">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Longeur</label>
+            <input type="text" id="input_modify_length">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Disponibilté</label>
+            <input type="text" id="input_modify_schedule">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Prix</label>
+            <input type="text" id="input_modify_price">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Actif</label>
+            <input type="text" id="input_modify_active">
         </div>
     </div>
     <a class="btn btn-success" href="#" role="button" style="padding: 10px; margin-top: 10px"

@@ -15,5 +15,11 @@ require_once "databaseConnection.php";
 $result = executeQuery($query);
 
 foreach ($result as $snow){
-    echo $snow['code'];
+    echo $snow['code']. "!";
+    echo $snow['brand']. "!";
+    echo $snow['model']. "!";
+    echo $snow['snowLength']. "!";
+    echo $snow['qtyAvailable']. "!";
+    echo $snow['dailyPrice']. "!";
+    echo $snow['active']. "!";
 }
