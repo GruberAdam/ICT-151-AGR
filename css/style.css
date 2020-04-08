@@ -21,7 +21,7 @@
     background: rgba(0, 0, 0, 0.7);
 }
 
-#submit_add_snow_from{
+#submit_add_snow_from, #submit_modify_snow_form{
     position: absolute;
     bottom: 50%;
     left: 50%;
@@ -38,4 +38,21 @@
     position: absolute;
     bottom: 80%;
     left: 50%;
+}
+#modify_image{
+    position: absolute;
+    top: 15%;
+    left: 30%;
+}
+#input_modify_description{
+    position: absolute;
+    bottom: 75%;
+    left: 60%;
+}
+#submit_delete_snow_form{
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    padding: 30px;
+    font-size: 30px;
 }

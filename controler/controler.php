@@ -110,9 +110,28 @@ function displayASnow($code){
     require_once "view/snow.php";
 }
 
-function modifySnow($code, $brand, $model, $length, $price, $schedule, $img, $description){
-    if (isset($code) && isset($brand) && isset($model) && isset($length) && isset($price) && isset($schedule) && isset($img)){
-        addSnow($code, $brand,$model,$length,$price,$schedule,$img, $description);
+function modifySnows($code, $brand, $model, $length, $price, $schedule, $img, $description, $active, $id){
+    if ($_GET['type'] == "add"){
+        if (isset($code) && isset($brand) && isset($model) && isset($length) && isset($price) && isset($schedule) && isset($img) && isset($active)){
+            addSnow($code, $brand,$model,$length,$price,$schedule,$img, $description);
+        }
+        else{
+            echo 'une erreur';
+        }
+    }
+    if ($_GET['type'] == "modify"){
+        if (isset($code) && isset($brand) && isset($model) && isset($length) && isset($price) && isset($schedule) && isset($img) && isset($active) && isset($id))  {
+            modifySnow($code, $brand,$model,$length,$price,$schedule,$img, $description , $active, $id);
+            echo 'yes';
+        }
+    }
+    if ($_GET['type'] == "delete"){
+        if (isset($id)){
+            deleteSnowById($id);
+        }
+        else{
+            echo 'out';
+        }
     }
 }
 

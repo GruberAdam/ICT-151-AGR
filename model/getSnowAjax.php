@@ -22,4 +22,5 @@ foreach ($result as $snow){
     echo $snow['qtyAvailable']. "!";
     echo $snow['dailyPrice']. "!";
     echo $snow['active']. "!";
+    echo $snow['description']. "!";
 }

@@ -18,7 +18,6 @@ function displaySnows(){
 function displayOneSnow($code){
     $query = "SELECT * FROM snows.snows WHERE snows.code = '$code'";
     $result = executeQuery($query);
-
     return $result;
 }
 
@@ -26,5 +25,17 @@ function displayOneSnow($code){
 function addSnow($code, $brand,$model,$length,$price,$schedule,$img, $description){
     $query = "INSERT INTO snows.snows (code, brand, model, snowLength, qtyAvailable, description, dailyPrice, photo) VALUES ('$code', '$brand', '$model', '$length', '$schedule', '$description', '$price', '$img');";
     $result = executeQuery($query);
+}
 
+/* Modifies a snow with all args */
+function modifySnow($code, $brand,$model,$length,$price,$schedule,$img, $description, $active, $id){
+    $query = "UPDATE snows.snows SET code = '$code', brand = '$brand', model = '$model', snowLength = '$length', qtyAvailable = '$schedule', description = '$description', dailyPrice = '$price', photo = '$img', active = '$active' WHERE id = '$id';";
+    $result = executeQuery($query);
+}
+
+/* This will delete a snow by the id given */
+function deleteSnowById($id){
+    echo "ID IS =". $id;
+    $query ="DELETE FROM snows.snows WHERE id = $id";
+    $result = executeQuery($query);
 }

@@ -1,6 +1,7 @@
 var background = document.getElementById('set-overlay');
 
 
+
 var frontDialogDelete = document.getElementById('dialog-window_delete');
 
 
@@ -42,20 +43,22 @@ function exitWindow(element) {
     document.getElementById('overlay').id = "set-overlay";
 }
 
-var selection = document.getElementById('inputState');
+let selection = document.getElementById('inputState');
 
+selection.addEventListener('change', function () {
+    document.getElementById('input_delete_id').value = selection.options[selection.selectedIndex].text;
+
+});
 
 /* This will show the database async */
 selection.addEventListener('change', function () {
-    var index = selection.selectedIndex + 1;
+    var index = selection.options[selection.selectedIndex].text;
 
 
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
             var output = formatAjaxOutput(this.responseText);
-            console.log(output);
             document.getElementById("input_modify_code").value = output[0];
             document.getElementById("input_modify_brand").value = output[1];
             document.getElementById("input_modify_model").value = output[2];
@@ -63,6 +66,7 @@ selection.addEventListener('change', function () {
             document.getElementById("input_modify_schedule").value = output[4];
             document.getElementById("input_modify_price").value = output[5];
             document.getElementById("input_modify_active").value = output[6];
+            document.getElementById("input_modify_description").innerHTML = output[7];
         }
     };
     xmlhttp.open("GET", "model/getSnowAjax.php?index=" + index, true);
@@ -80,6 +84,7 @@ function formatAjaxOutput(text) {
     var schedule = "";
     var price = "";
     var active = "";
+    var description = "";
 
     for (var i = 0; i < text.length; i++) {
 
@@ -117,17 +122,21 @@ function formatAjaxOutput(text) {
                     counter = 0;
                     break;
                 case 5:
-                    console.log('Debut : '+ wrd6 + "Fin :" + counter);
                     price = text.substr(wrd6 + 1, counter -1);
                     num = 6;
                     wrd7 = i;
                     counter = 0;
                     break;
                 case 6:
-                    console.log('Debut : '+ text[wrd7+1] + "Fin :" + text[counter - 1]);
                     active = text.substr(wrd7 + 1, counter -1);
                     num = 7;
-                    wrd7 = i;
+                    wrd8 = i;
+                    counter = 0;
+                    break;
+                case 7:
+                    description = text.substr(wrd8 + 1, counter -1);
+                    num = 8;
+                    wrd8 = i;
                     counter = 0;
                     break;
             }
@@ -135,8 +144,12 @@ function formatAjaxOutput(text) {
         counter++;
     }
 
-    var snows = [code, brand, model, length, schedule, price, active];
+    var snows = [code, brand, model, length, schedule, price, active, description];
 
     return snows
+}
 
+function changeImg(v) {
+    console.log(v);
+    document.getElementById('snow_modify_display').src = v;
 }
