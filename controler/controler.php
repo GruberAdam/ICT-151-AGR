@@ -100,7 +100,6 @@ function register()
 /* This will get the every snow in the database */
 function products(){
     $snows = displaySnows();
-
     require_once "view/snows.php";
 }
 
@@ -133,6 +132,7 @@ function modifySnows($code, $brand, $model, $length, $price, $schedule, $img, $d
             echo 'out';
         }
     }
+    products();
 }
 
 function cart(){
